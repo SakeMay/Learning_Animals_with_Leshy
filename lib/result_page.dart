@@ -34,7 +34,7 @@ class ResultPage extends StatelessWidget {
                     child: FittedBox(
                       fit: BoxFit.contain,
                       child: Text(
-                        '${score >= quizBrain.getQuestionLength() ? 'Magnificent, $name,\nyou guessed all 32 beasts correctly' : 'Great... $name,\nYou guessed it right $score out of ${quizBrain.getQuestionLength()} beasts'}',
+                        '${score >= quizBrain.getQuestionLength() ? 'Magnificent, $name,\nyou guessed all ${quizBrain.getQuestionLength()} beasts correctly' : 'Great... $name,\nYou guessed it right $score out of ${quizBrain.getQuestionLength()} beasts'}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 40.0,

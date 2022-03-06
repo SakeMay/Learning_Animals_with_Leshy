@@ -12,12 +12,12 @@ class QuizBrain {
   List<int> randomBeasts = [];
 
   QuizBrain() {
-    beastLength = getQuestionLength();
+    beastLength = getBeastLength();
     questionLength = beastLength - 4 + 1;
     reset();
   }
 
-  final List<Question> questionBank = [
+  final List<Question> beastList = [
     Question(p: 1, a: 'ADDER'),
     Question(p: 2, a: 'ANT QUEEN'),
     Question(p: 3, a: 'BAT'),
@@ -84,7 +84,7 @@ class QuizBrain {
   }
 
   String? getImagePath() {
-    return questionBank[correctChoice].imagePath;
+    return beastList[correctChoice].imagePath;
   }
 
   int getCorrectButton() {
@@ -95,8 +95,12 @@ class QuizBrain {
     return correctName;
   }
   
+  int getBeastLength() {
+    return beastList.length;
+  }
+
   int getQuestionLength() {
-    return questionBank.length;
+    return questionLength;
   }
 
   int getQuestionNumber() {
@@ -105,12 +109,12 @@ class QuizBrain {
 
   List<String?> getChoices() {
     List<String?> choices = List.filled(4, '');
-    correctName = questionBank[correctChoice].beastName;
+    correctName = beastList[correctChoice].beastName;
     for (int i = 0; i < 4; i++) {
       if (i == correctButton) {
         choices[i] = correctName;
       } else {
-        choices[i] = questionBank[randomBeasts[i]].beastName;
+        choices[i] = beastList[randomBeasts[i]].beastName;
       }
     }
     return choices;
